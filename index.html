@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单条目间断性滚动轮播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .contain {
+            width: 800px;
+            margin: auto auto;
+            overflow: hidden;
+        }
+
+        .single {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .pre {
+            position: absolute;
+            width: 20px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+
+        .pre:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .pre::before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            border: solid #fff;
+            border-width: 2px 0 0 2px;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            position: absolute;
+            left: 70%;
+            top: 50%;
+        }
+
+        .next {
+            position: absolute;
+            width: 20px;
+            height: 100%;
+            right: 0px;
+            background-color: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .next::before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            position: absolute;
+            left: 30%;
+            top: 50%;
+        }
+
+        .single ul {
+            list-style: none;
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        .single ul li {
+            display: inline-block;
+        }
+
+        img {
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>单条目间断性滚动轮播（横向）</h1>
+        <a href="./index2.html">查看竖向</a>
+    </header>
+    <div class="contain">
+        <div class="single">
+            <div class="pre"></div>
+            <div class="next"></div>
+            <ul>
+                <li>
+                    <img src="./images/0001.png" alt="">
+                </li>
+                <li>
+                    <img src="./images/0002.png" alt="">
+                </li>
+                <li>
+                    <img src="./images/0003.png" alt="">
+                </li>
+                <li>
+                    <img src="./images/0004.png" alt="">
+                </li>
+                <li>
+                    <img src="./images/0005.png" alt="">
+                </li>
+                <li>
+                    <img src="./images/0006.png" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/mySingleScroll.js"></script>
+    <script>
+        var single;
+        $(window).load(function () {
+            single = $('.single').mySingleScroll({
+                speed: 2000
+            });
+        });
+    </script>
+</body>
+
+</html>
